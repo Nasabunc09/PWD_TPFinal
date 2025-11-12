@@ -1,6 +1,6 @@
 <?php
 
-class ABMproducto{
+class AbmProducto{
 
  /**
      * Crea un objeto Producto a partir de los datos recibidos (array asociativo)

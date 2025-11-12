@@ -15,7 +15,7 @@
         <h5 class="mb-4 text-muted" id="form-title">Iniciar sesión</h5>
 
         <!-- FORMULARIO LOGIN -->
-        <form id="login-form" class="text-start">
+        <form id="login-form" class="text-start" onsubmit="encriptar()" action="accion/iniciarSesion.php" method="post">
           <div class="mb-3">
             <label for="login-email" class="form-label">Correo electrónico</label>
             <input type="email" class="form-control" id="login-email" placeholder="Ingrese su correo" required>
