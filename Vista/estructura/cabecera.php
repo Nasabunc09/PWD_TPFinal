@@ -22,6 +22,9 @@ ini_set('display_errors', 1);
    <link rel="stylesheet" href="<?= $GLOBALS['CSS_URL']; ?>pie.css">
    <link rel="stylesheet" href="<?= $GLOBALS['CSS_URL']; ?>carrito.css">
    <link rel="stylesheet" href="<?= $GLOBALS['CSS_URL']; ?>albumProductos.css">
+   
+   <img src="<?= $GLOBALS['IMG_URL']; ?>logo.png" alt="logo">
+   <a href="<?= $GLOBALS['BASE_URL']; ?>index.php">Inicio</a>
 
 </head>
 

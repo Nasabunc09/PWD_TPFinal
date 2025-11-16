@@ -15,32 +15,43 @@
         <h5 class="mb-4 text-muted" id="form-title">Iniciar sesión</h5>
 
         <!-- FORMULARIO LOGIN -->
-        <form id="login-form" class="text-start" onsubmit="encriptar()" action="accion/iniciarSesion.php" method="post">
+        <form id="login-form" class="text-start" action="../login/paginaSegura.php" method="post">
           <div class="mb-3">
-            <label for="login-email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="login-email" placeholder="Ingrese su correo" required>
+            <label class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" name="usnombre" required>
           </div>
+
           <div class="mb-3">
-            <label for="login-password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="login-password" placeholder="Ingrese su contraseña" required>
+            <label class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="uspass" required>
           </div>
+
+          <?php if (isset($_GET["error"])) { ?>
+              <div class="alert alert-danger py-1">
+                Nombre de usuario o contraseña incorrectos
+              </div>
+          <?php } ?>
+
           <button type="submit" class="btn btn-success w-100">Ingresar</button>
         </form>
 
         <!-- FORMULARIO REGISTRO -->
-        <form id="register-form" class="text-start d-none">
+        <form id="register-form" class="text-start d-none" action="../accion/registrarUsuario.php" method="post">
           <div class="mb-3">
-            <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control" placeholder="Ingrese nombre" required>
+            <label class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" name="usnombre" required>
           </div>
+
           <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" placeholder="Ingrese correo" required>
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" name="usmail" required>
           </div>
+
           <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" placeholder="Ingrese contraseña" required>
+            <label class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="uspass" required>
           </div>
+
           <button type="submit" class="btn btn-primary w-100">Crear cuenta</button>
         </form>
 
@@ -49,10 +60,8 @@
   </div>
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script para alternar formularios -->
 <script>
 const btnLogin = document.getElementById("btn-login");
 const btnRegister = document.getElementById("btn-register");

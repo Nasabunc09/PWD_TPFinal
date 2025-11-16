@@ -1,17 +1,28 @@
 <?php
-// Nombre del proyecto
+// Nombre del proyecto (carpeta bajo document_root)
 $PROYECTO = 'PWD_TPFinal';
 
-// Ruta física
-$ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";
+// ---------------------------
+// RUTA FÍSICA (para PHP)
+// ---------------------------
+// Ej: C:\xampp\htdocs\PWD_TPFinal\
+$GLOBALS['ROOT_PROYECTO'] = rtrim($_SERVER['DOCUMENT_ROOT'], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $PROYECTO . DIRECTORY_SEPARATOR;
 
-// URL pública
-$BASE_URL = "/" . $PROYECTO . "/";
+// ---------------------------
+// URL PÚBLICA (para el navegador)
+// ---------------------------
+// Ej: /PWD_TPFinal/
+$GLOBALS['BASE_URL']  = '/' . trim($PROYECTO, '/') . '/';
 
-// Rutas globales
-$GLOBALS['ROOT_PROYECTO'] = $ROOT;
-$GLOBALS['BASE_URL'] = $BASE_URL;
-$GLOBALS['VISTA_URL'] = $BASE_URL . "Vista/";
-$GLOBALS['CSS_URL'] = $BASE_URL . "Vista/css/";
-$GLOBALS['IMG_URL'] = $BASE_URL . "Vista/imagenes/";
+// ---------------------------
+// RUTAS DERIVADAS
+// ---------------------------
+$GLOBALS['VISTA_URL'] = $GLOBALS['BASE_URL'] . 'Vista/';
+$GLOBALS['CSS_URL']   = $GLOBALS['BASE_URL'] . 'Vista/css/';
+$GLOBALS['IMG_URL']   = $GLOBALS['BASE_URL'] . 'Vista/imagenes/';
+
+// Rutas físicas útiles
+$GLOBALS['MODELO_PATH'] = $GLOBALS['ROOT_PROYECTO'] . 'Modelo' . DIRECTORY_SEPARATOR;
+$GLOBALS['CONTROL_PATH'] = $GLOBALS['ROOT_PROYECTO'] . 'Control' . DIRECTORY_SEPARATOR;
+$GLOBALS['VISTA_PATH'] = $GLOBALS['ROOT_PROYECTO'] . 'Vista' . DIRECTORY_SEPARATOR;
 ?>
