@@ -25,4 +25,24 @@ $GLOBALS['IMG_URL']   = $GLOBALS['BASE_URL'] . 'Vista/imagenes/';
 $GLOBALS['MODELO_PATH'] = $GLOBALS['ROOT_PROYECTO'] . 'Modelo' . DIRECTORY_SEPARATOR;
 $GLOBALS['CONTROL_PATH'] = $GLOBALS['ROOT_PROYECTO'] . 'Control' . DIRECTORY_SEPARATOR;
 $GLOBALS['VISTA_PATH'] = $GLOBALS['ROOT_PROYECTO'] . 'Vista' . DIRECTORY_SEPARATOR;
+
+// AUTOLOAD DE CLASES
+
+spl_autoload_register(function($className) {
+
+    $carpetas = [
+        $GLOBALS['CONTROL_PATH'],                     // Control/
+        $GLOBALS['MODELO_PATH'],                      // Modelo/
+        $GLOBALS['MODELO_PATH'] . 'conector' . DIRECTORY_SEPARATOR, // Modelo/conector/
+        $GLOBALS['ROOT_PROYECTO'] . 'utils' . DIRECTORY_SEPARATOR    // utils/
+    ];
+
+    foreach ($carpetas as $carpeta) {
+        $archivo = $carpeta . $className . '.php';
+        if (file_exists($archivo)) {
+            include_once $archivo;
+            return;
+        }
+    }
+});
 ?>

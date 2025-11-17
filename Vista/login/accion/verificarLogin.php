@@ -1,5 +1,6 @@
 <?php
-include_once '../../configuracion.php';
+// Carga la configuración con ruta absoluta
+include_once $_SERVER['DOCUMENT_ROOT'] . '/PWD_TPFinal/configuracion.php';
 
 // Creo la sesión
 $session = new Session();
@@ -12,12 +13,12 @@ $uspass   = $_POST['uspass'] ?? '';
 if ($session->iniciar($usnombre, $uspass)) {
 
     // Login correcto → redirige al menú seguro
-    header("Location: ../login/paginaSegura.php"); //dashboard
+    header("Location: ../paginaSegura.php");
     exit;
-    
+
 } else {
 
-    // Login incorrecto
-    header("Location: ../login/login.php?error=1");
+    // Login incorrecto → vuelve con error
+    header("Location: ../login.php?error=1");
     exit;
 }

@@ -15,7 +15,7 @@
         <h5 class="mb-4 text-muted" id="form-title">Iniciar sesión</h5>
 
         <!-- FORMULARIO LOGIN -->
-        <form id="login-form" class="text-start" action="../login/paginaSegura.php" method="post">
+        <form id="login-form" class="text-start" action="accion/verificarLogin.php" method="post">
           <div class="mb-3">
             <label class="form-label">Nombre de usuario</label>
             <input type="text" class="form-control" name="usnombre" required>
@@ -36,7 +36,7 @@
         </form>
 
         <!-- FORMULARIO REGISTRO -->
-        <form id="register-form" class="text-start d-none" action="../accion/registrarUsuario.php" method="post">
+        <form id="register-form" class="text-start d-none" action="accion/registrarUsuario.php" method="post">
           <div class="mb-3">
             <label class="form-label">Nombre de usuario</label>
             <input type="text" class="form-control" name="usnombre" required>
